@@ -6,13 +6,10 @@ $(function(){
 			update();
 		}
 	});
-
-
-
-	var canvas = document.querySelector("canvas"),
-	  context = canvas.getContext("2d"),
-	  width = canvas.width,
-	  height = canvas.height;
+	const playground = $("#playground"),
+		  context = playground.getContext("2d"),
+		  width = playground.width,
+		  height = playground.height;
 
 	var linkForce = d3.forceLink()
 	  .id(function(d) {
@@ -44,7 +41,6 @@ $(function(){
 	$("#traitSelection").off("change").on("change", function() {
 		update();
 	});
-
 
 	var simulation = d3.forceSimulation()
 	  .force("link", linkForce)

@@ -1,25 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
+        <title>Playground Psygra</title>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+        <!--STYLES (ordered) -->
+        <link rel="stylesheet" href="libs/jquery-ui-1.12.1.css" >
+        <link rel="stylesheet" href="libs/bootstrap-4.4.1-dist/css/bootstrap.min.css" >
+        <link rel="stylesheet" href="libs/bootstrap-4.4.1-dist/css/bootstrap-grid.min.css" >
+        <link rel="stylesheet" href="css/main.css">
+
+        <!--SCRIPTS (ordered)-->
         <script src="libs/d3.v4.min.js"></script>
         <script src="libs/jquery-3.4.1.min.js"></script>
         <script src="libs/jquery-ui-1.12.1.js"></script>
-        <link rel="stylesheet" href="libs/jquery-ui-1.12.1.css" >
-
+        <script src="libs/bootstrap-4.4.1-dist/js/bootstrap.bundle.min.js"></script>
         <script src="js/minderheiten.js"></script>
-        <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
         <canvas id="playground" width="800" height="600"></canvas>
 
-        <div style="width:30em;margin:1em" id="slider"></div>
-        <select id="traitSelection">
-            <option value="0">Veganer sind Cool</option>
-            <option value="1">Alter</option>
-        </select>
-    </body>
+        <div style="margin-left:2em">
+            <h1>Times</h1>
+            <div style="width:30em; margin:1em .5em;" id="slider"></div>
 
+            <h1>Traits</h1>
+            <div style="margin:1em 0;" id="traits">
+
+      
+
+
+                <select id="traitSelection">
+                    <option value="0">Trait 1</option>
+                    <option value="1">Trait 2</option>
+                </select>
+                </select>
+            </div>
+        </div>
+    </body>
 </html>

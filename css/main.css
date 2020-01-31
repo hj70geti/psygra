@@ -1,0 +1,11 @@
+#playground {
+    margin: 2em;
+    background: linear-gradient(-45deg, #f5ebdf, #f5e3dc, #e7eef5, #e7f5e7);
+    border: thin grey solid;
+}
+body,html{
+    margin:0;
+    padding:0;
+    background: #f5f4ef
+
+}

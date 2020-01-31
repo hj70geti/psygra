@@ -1,15 +1,16 @@
-$(function(){
- 	var graphOriginal;
+$(function() {
+	var graphOriginal;
 
 	$("#slider").slider({
 		slide: function(event, ui) {
 			update();
 		}
 	});
-	const playground = $("#playground"),
-		  context = playground.getContext("2d"),
-		  width = playground.width,
-		  height = playground.height;
+
+	const playground = $("#playground")[0],
+	  context = playground.getContext("2d"),
+	  width = playground.width,
+	  height = playground.height;
 
 	var linkForce = d3.forceLink()
 	  .id(function(d) {
@@ -24,10 +25,10 @@ $(function(){
 
 
 			var sliderValue = $("#slider").slider("value");
-			var v=d.value[trait];
+			var v = d.value[trait];
 
 			/* hier kommt die theorie ins spiel*/
-			v=sliderValue*10+v;
+			v = sliderValue * 10 + v;
 
 			other = graphOriginal.links;
 			//if(d.source != other.source)
@@ -47,7 +48,7 @@ $(function(){
 	  .force("charge", d3.forceManyBody())
 	  .force("center", d3.forceCenter(width / 2, height / 2));
 
-	d3.json("minderheiten_1.json", function(error, graph) {
+	d3.json("data/minderheiten_1.json", function(error, graph) {
 		if (error) throw error;
 		graphOriginal = graph;
 
@@ -58,9 +59,9 @@ $(function(){
 		simulation.force("link")
 		  .links(graph.links);
 
-		d3.select(canvas)
+		d3.select(playground)
 		  .call(d3.drag()
-			.container(canvas)
+			.container(playground)
 			.subject(dragsubject)
 			.on("start", dragstarted)
 			.on("drag", dragged)

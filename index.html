@@ -3,22 +3,23 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
         <script src="libs/d3.v4.min.js"></script>
         <script src="libs/jquery-3.4.1.min.js"></script>
         <script src="libs/jquery-ui-1.12.1.js"></script>
-        <link rel="stylesheet" href="libs/jquery-ui-1.12.1.css">
+        <link rel="stylesheet" href="libs/jquery-ui-1.12.1.css" >
 
-        <script src="minderheiten.js"></script>
-
+        <script src="js/minderheiten.js"></script>
+        <link rel="stylesheet" href="css/main.css">
     </head>
+    <body>
+        <canvas id="playground" width="800" height="600"></canvas>
 
-<body>
-    <canvas id="playground" width="800" height="600"></canvas>
+        <div style="width:30em;margin:1em" id="slider"></div>
+        <select id="traitSelection">
+            <option value="0">Veganer sind Cool</option>
+            <option value="1">Alter</option>
+        </select>
+    </body>
 
-    <div style="width:30em;margin:1em" id="slider"></div>
-    <select id="traitSelection">
-        <option value="0">Veganer sind Cool</option>
-        <option value="1">Alter</option>
-    </select>
-</body>
 </html>

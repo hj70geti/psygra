@@ -1,11 +1,17 @@
 $(function() {
-	var graphOriginal;
+	let graphOriginal;
 
-	$("#slider").slider({
+	const timeSlider = $("#slider_time").slider({
 		slide: function(event, ui) {
 			update();
 		}
 	});
+	const zoomSlider = $("#slider_zoom").slider({
+		slide: function(event, ui) {
+			update();
+		}
+	});
+
 
 	const playground = $("#playground")[0],
 	  context = playground.getContext("2d"),
@@ -19,18 +25,40 @@ $(function() {
 	  .distance(function(d) {
 		  return d.value[trait];
 	  });
+
+
+	var model = function(list){
+		$.each(list, function(udx, item){
+
+
+		});
+
+		return list;
+	};
+
+
+	
 	var update = function() {
 		trait = JSON.parse($("#traitSelection option:selected")[0].value);
 		linkForce.distance(function(d) {
+			const timePoint = timeSlider.slider("value");
+			const zoom 		= zoomSlider.slider("value");
 
+			let v = d.value[trait] * (zoom+10)/5;
 
-			var sliderValue = $("#slider").slider("value");
-			var v = d.value[trait];
+			if(timePoint < 50){
+				// past
 
-			/* hier kommt die theorie ins spiel*/
-			v = sliderValue * 10 + v;
+				// $.each(graphOriginal.links,function(idx, item){
+				//
+				// }) ;
+				//v = sliderValue * 10 + v*;
+			}else{
+				// now
+				v = 90;
+			}
 
-			other = graphOriginal.links;
+			//other = graphOriginal.links;
 			//if(d.source != other.source)
 
 
@@ -68,10 +96,14 @@ $(function() {
 			.on("end", dragended));
 
 		function ticked() {
+			const radius = 15 + (zoomSlider.slider("value")+1);
+
+
 			context.clearRect(0, 0, width, height);
 
 			context.beginPath();
 			graph.links.forEach(function(d) {
+				context.shadowBlur = 0;
 				context.moveTo(d.source.x, d.source.y);
 				context.lineTo(d.target.x, d.target.y);
 
@@ -81,13 +113,21 @@ $(function() {
 
 			context.beginPath();
 			graph.nodes.forEach(function(d) {
+
+				// Create gradient
+				const grd = context.createRadialGradient(d.x, d.y, 1, d.x, d.y, radius);
+				grd.addColorStop(0, d.farbe);
+				grd.addColorStop(1, d.farbe + "00");
+
+
 				context.beginPath();
-				context.moveTo(d.x + 6, d.y);
-				context.arc(d.x, d.y, 6, 0, 2 * Math.PI);
-				context.fillStyle = d.farbe;
+				context.moveTo(d.x + radius, d.y);
+				context.arc(d.x, d.y, radius, 0, 2 * Math.PI);
+				// context.shadowColor = d.farbe;
+				// context.shadowBlur = 5;
+				context.fillStyle = grd;
 				context.fill();
-				context.strokeStyle = "#00000055";
-				context.stroke();
+				
 			});
 		}
 
@@ -113,4 +153,6 @@ $(function() {
 		d3.event.subject.fy = null;
 	}
 
+	update();
+	
 });

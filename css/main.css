@@ -1,6 +1,6 @@
 #playground {
-    margin: 2em;
-    background: linear-gradient(-45deg, #f5ebdf, #f5e3dc, #e7eef5, #e7f5e7);
+    margin: 0 2em;
+    background: linear-gradient(-45deg, #f5ebdf, #ede3d7, #f5e8f1, #f2f5e9);
     border: thin grey solid;
 }
 body,html{

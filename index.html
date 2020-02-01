@@ -21,16 +21,21 @@
         <script src="js/minderheiten.js"></script>
     </head>
     <body>
-        <div style="margin:0.5em 2em;">
-            <div style="width:20em; margin:0 .5em;" id="slider_zoom"></div>
+        <div style="margin:0.5em 2em; float: left">
+            <div style="width:20em; margin:0 .5em" id="slider_zoom"></div>
+            <canvas id="playground" width="800" height="600"></canvas>
         </div>
-        
-        <canvas id="playground" width="800" height="600"></canvas>
+        <div style="margin: 1.5em 1em;float: left;width: 33em;">
+            <div id="thesis_function"></div>
+        </div>
 
-        <div style="margin-left:2em">
+        <div style="clear: both; margin-left:2em">
             <h1>Time points</h1>
-            <div style="width:30em; margin:1em .5em;" id="slider_time"></div>
+            <div style="width:30em; margin:1em .5em;float:left;" id="slider_time"></div>
 
+            <div style="float:left;" id="timepoint_label"></div>
+
+            <div style="clear:both" ></div>
             <h1>Traits</h1>
             <div style="margin:1em 0;" id="traits">
 

@@ -1,5 +1,5 @@
 #playground {
-    margin: 0 2em;
+    margin: 0;
     background: linear-gradient(-45deg, #f5ebdf, #ede3d7, #f5e8f1, #f2f5e9);
     border: thin grey solid;
 }
@@ -14,4 +14,11 @@ body,html{
 
 h1{
     font-size: medium;
+}
+
+#thesis_function{
+    font-size: 75%;
+}
+.space{
+    margin: 0.2em;
 }

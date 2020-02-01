@@ -1,10 +1,12 @@
 $(function() {
-	let dhm_tp1;
-	let dhm_tp2;
+	let dhm = [];
+	let timepointsAmount = 20;
 
 	const timeSlider = $("#slider_time").slider({
 		slide: function(event, ui) {
 			update();
+			const t = Math.round(ui.value * (timepointsAmount - 1) / 100);
+			$("#timepoint_label").html("t" + (t + 1));
 		}
 	});
 	const zoomSlider = $("#slider_zoom").slider({
@@ -12,12 +14,15 @@ $(function() {
 			update();
 		}
 	});
+	const str = th1.apply.toString()
+	  .replace(/\n/gi,"<br>")
+	  .replace(/\s/gi,"<span class='space'>&nbsp;</span>");
+	$("#thesis_function").html(str);
 
-
-	const playground = $("#playground")[0],
-	  context = playground.getContext("2d"),
-	  width = playground.width,
-	  height = playground.height;
+	const playground = $("#playground")[0];
+	const context = playground.getContext("2d");
+	const width = playground.width;
+	const height = playground.height;
 
 	var linkForce = d3.forceLink()
 	  .id(function(d) {
@@ -31,18 +36,12 @@ $(function() {
 	var update = function() {
 		trait = JSON.parse($("#traitSelection option:selected")[0].value);
 		linkForce.distance(function(d) {
-			const timePoint = timeSlider.slider("value");
-			const zoom 		= zoomSlider.slider("value");
+			const value = timeSlider.slider("value");
+			const t = Math.round(value * (timepointsAmount - 1) / 100);
 
-			let v;
-			if (timePoint < 50) {
-				v = dhm_tp1[d.target.id - 1][d.source.id - 1];
-			} else {
-				v = dhm_tp2[d.target.id - 1][d.source.id - 1];
-			}
+			let v = dhm[trait][t][d.target.id - 1][d.source.id - 1];
 
-			v = v * (zoom+10)/5;
-
+			v = v * (zoomSlider.slider("value") + 10) / 5;
 			return v;
 		});
 		simulation.alpha(1).restart();
@@ -60,8 +59,13 @@ $(function() {
 	d3.json("data/minderheiten_1.json", function(error, graph) {
 		if (error) throw error;
 
-		dhm_tp1 = d3util.listToDhm(graph.links, 0, graph.nodes.length);
-		dhm_tp2 = th1.apply(dhm_tp1);
+		for (let trait = 0; trait < 2; trait++) {
+			dhm[trait] = [];
+			dhm[trait][0] = d3util.listToDhm(graph.links, trait, graph.nodes.length);
+			for (let t = 1; t < timepointsAmount; t++) {
+				dhm[trait][t] = th1.apply(dhm[trait][t - 1]);
+			}
+		}
 
 		simulation
 		  .nodes(graph.nodes)

@@ -1,5 +1,6 @@
 $(function() {
-	let graphOriginal;
+	let dhm_tp1;
+	let dhm_tp2;
 
 	const timeSlider = $("#slider_time").slider({
 		slide: function(event, ui) {
@@ -26,17 +27,6 @@ $(function() {
 		  return d.value[trait];
 	  });
 
-
-	var model = function(list){
-		$.each(list, function(udx, item){
-
-
-		});
-
-		return list;
-	};
-
-
 	
 	var update = function() {
 		trait = JSON.parse($("#traitSelection option:selected")[0].value);
@@ -44,23 +34,14 @@ $(function() {
 			const timePoint = timeSlider.slider("value");
 			const zoom 		= zoomSlider.slider("value");
 
-			let v = d.value[trait] * (zoom+10)/5;
-
-			if(timePoint < 50){
-				// past
-
-				// $.each(graphOriginal.links,function(idx, item){
-				//
-				// }) ;
-				//v = sliderValue * 10 + v*;
-			}else{
-				// now
-				v = 90;
+			let v;
+			if (timePoint < 50) {
+				v = dhm_tp1[d.target.id - 1][d.source.id - 1];
+			} else {
+				v = dhm_tp2[d.target.id - 1][d.source.id - 1];
 			}
 
-			//other = graphOriginal.links;
-			//if(d.source != other.source)
-
+			v = v * (zoom+10)/5;
 
 			return v;
 		});
@@ -78,7 +59,9 @@ $(function() {
 
 	d3.json("data/minderheiten_1.json", function(error, graph) {
 		if (error) throw error;
-		graphOriginal = graph;
+
+		dhm_tp1 = d3util.listToDhm(graph.links, 0, graph.nodes.length);
+		dhm_tp2 = th1.apply(dhm_tp1);
 
 		simulation
 		  .nodes(graph.nodes)

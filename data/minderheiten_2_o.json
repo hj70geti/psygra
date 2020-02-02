@@ -1,0 +1,48 @@
+{
+ "nodes": [
+  {"id": 1, "person": 1, "trait": 1, "farbe": "#ffe11a"},
+  {"id": 2, "person": 1, "trait": 2, "farbe": "#ffe11a"},
+  {"id": 3, "person": 2, "trait": 1, "farbe": "#00e6f6"},
+  {"id": 4, "person": 2, "trait": 2, "farbe": "#00e6f6"},
+  {"id": 5, "person": 3, "trait": 1, "farbe": "#b4a144"},
+  {"id": 6, "person": 3, "trait": 2, "farbe": "#b4a144"},
+  {"id": 7, "person": 4, "trait": 1, "farbe": "#c77dc8"},
+  {"id": 8, "person": 4, "trait": 2, "farbe": "#c77dc8"}
+ ],
+  "links": [
+  {"source": 1, "target": 2, "value": [5,21]},
+  {"source": 1, "target": 3, "value": [200,22]},
+  {"source": 1, "target": 4, "value": [205,19]},
+  {"source": 1, "target": 5, "value": [200,43]},
+  {"source": 1, "target": 6, "value": [205,36]},
+  {"source": 1, "target": 7, "value": [200,36]},
+  {"source": 1, "target": 8, "value": [205,36]},
+
+  {"source": 2, "target": 3, "value": [105,20]},
+  {"source": 2, "target": 4, "value": [100,34]},
+  {"source": 2, "target": 5, "value": [105,33]},
+  {"source": 2, "target": 6, "value": [100,22]},
+  {"source": 2, "target": 7, "value": [105,22]},
+  {"source": 2, "target": 8, "value": [100,22]},
+
+  {"source": 3, "target": 4, "value": [5,28]},
+  {"source": 3, "target": 5, "value": [100,28]},
+  {"source": 3, "target": 6, "value": [105,30]},
+  {"source": 3, "target": 7, "value": [100,30]},
+  {"source": 3, "target": 8, "value": [105,30]},
+
+  {"source": 4, "target": 5, "value": [105,30]},
+  {"source": 4, "target": 6, "value": [100,30]},
+  {"source": 4, "target": 7, "value": [105,30]},
+  {"source": 4, "target": 8, "value": [100,30]},
+
+  {"source": 5, "target": 6, "value": [5,30]},
+  {"source": 5, "target": 7, "value": [100,30]},
+  {"source": 5, "target": 8, "value": [105,30]},
+
+  {"source": 6, "target": 7, "value": [105,30]},
+  {"source": 6, "target": 8, "value": [100,30]},
+
+  {"source": 7, "target": 8, "value": [5,30]}
+ ]
+}

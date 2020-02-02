@@ -2,30 +2,30 @@
  "nodes": [
   {"id": 1, "group": 2, "farbe": "#ffe11a"},
   {"id": 2, "group": 1, "farbe": "#00e6f6"},
-  {"id": 3, "group": 1, "farbe": "#00e6f6"},
-  {"id": 4, "group": 1, "farbe": "#00e6f6"},
-  {"id": 5, "group": 1, "farbe": "#00e6f6"},
-  {"id": 6, "group": 1, "farbe": "#00e6f6"}
+  {"id": 3, "group": 1, "farbe": "#b4a144"},
+  {"id": 4, "group": 1, "farbe": "#afdb46"},
+  {"id": 5, "group": 1, "farbe": "#c77dc8"},
+  {"id": 6, "group": 1, "farbe": "#00a1c8"}
  ],
  "links": [
-  {"source": 1, "target": 2, "value": [100,21]},
-  {"source": 1, "target": 3, "value": [100,22]},
-  {"source": 1, "target": 4, "value": [100,19]},
-  {"source": 1, "target": 5, "value": [100,43]},
-  {"source": 1, "target": 6, "value": [100,36]},
+  {"source": 1, "target": 2, "value": [300,100]},
+  {"source": 1, "target": 3, "value": [300,100]},
+  {"source": 1, "target": 4, "value": [300,100]},
+  {"source": 1, "target": 5, "value": [300,100]},
+  {"source": 1, "target": 6, "value": [300,100]},
 
-  {"source": 2, "target": 3, "value": [10,20]},
-  {"source": 2, "target": 4, "value": [10,34]},
-  {"source": 2, "target": 5, "value": [10,33]},
-  {"source": 2, "target": 6, "value": [10,22]},
+  {"source": 2, "target": 3, "value": [100,100]},
+  {"source": 2, "target": 4, "value": [100,100]},
+  {"source": 2, "target": 5, "value": [100,100]},
+  {"source": 2, "target": 6, "value": [100,100]},
 
-  {"source": 3, "target": 4, "value": [10,28]},
-  {"source": 3, "target": 5, "value": [10,28]},
-  {"source": 3, "target": 6, "value": [10,30]},
+  {"source": 3, "target": 4, "value": [100,100]},
+  {"source": 3, "target": 5, "value": [100,100]},
+  {"source": 3, "target": 6, "value": [100,100]},
 
-  {"source": 4, "target": 5, "value": [10,30]},
-  {"source": 4, "target": 6, "value": [10,30]},
+  {"source": 4, "target": 5, "value": [100,100]},
+  {"source": 4, "target": 6, "value": [100,100]},
 
-  {"source": 5, "target": 6, "value": [10,30]}
+  {"source": 5, "target": 6, "value": [100,100]}
  ]
 }
